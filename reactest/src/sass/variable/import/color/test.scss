@@ -1,0 +1,137 @@
+
+
+/* ===== mixins for scaling of background-color  ===== */
+@mixin bg-cooler-1($scale-tonic,$hu:-6,$sat:0,$light:0) {
+  background-color: adjust-color($scale-tonic,$hue:$hu,$saturation:$sat,$lightness:$light)
+}
+@mixin bg-cooler-2($scale-tonic,$hu:-12,$sat:0,$light:0) {
+  background-color: adjust-color($scale-tonic,$hue:$hu,$saturation:$sat,$lightness:$light)
+}
+@mixin bg-cooler-3($scale-tonic,$hu:-18,$sat:0,$light:0) {
+  background-color: adjust-color($scale-tonic,$hue:$hu,$saturation:$sat,$lightness:$light)
+}
+@mixin bg-cooler-4($scale-tonic,$hu:-24,$sat:0,$light:0) {
+  background-color: adjust-color($scale-tonic,$hue:$hu,$saturation:$sat,$lightness:$light)
+}
+@mixin bg-cooler-5($scale-tonic,$hu:-30,$sat:0,$light:0) {
+  background-color: adjust-color($scale-tonic,$hue:$hu,$saturation:$sat,$lightness:$light)
+}
+@mixin bg-cooler-6($scale-tonic,$hu:-36,$sat:0,$light:0) {
+  background-color: adjust-color($scale-tonic,$hue:$hu,$saturation:$sat,$lightness:$light)
+}
+@mixin bg-tonic($scale-tonic,$hu:0,$sat:0,$light:0) {
+  background-color: adjust-color($scale-tonic,$hue:$hu,$saturation:$sat,$lightness:$light)
+}
+@mixin bg-warmer-1($scale-tonic,$hu:6,$sat:0,$light:0) {
+  background-color: adjust-color($scale-tonic,$hue:$hu,$saturation:$sat,$lightness:$light)
+}
+@mixin bg-warmer-2($scale-tonic,$hu:12,$sat:0,$light:0) {
+  background-color: adjust-color($scale-tonic,$hue:$hu,$saturation:$sat,$lightness:$light)
+}
+@mixin bg-warmer-3($scale-tonic,$hu:18,$sat:0,$light:0) {
+  background-color: adjust-color($scale-tonic,$hue:$hu,$saturation:$sat,$lightness:$light)
+}
+@mixin bg-warmer-4($scale-tonic,$hu:24,$sat:0,$light:0) {
+  background-color: adjust-color($scale-tonic,$hue:$hu,$saturation:$sat,$lightness:$light)
+}
+@mixin bg-warmer-5($scale-tonic,$hu:30,$sat:0,$light:0) {
+  background-color: adjust-color($scale-tonic,$hue:$hu,$saturation:$sat,$lightness:$light)
+}
+@mixin bg-warmer-6($scale-tonic,$hu:36,$sat:0,$light:0) {
+  background-color: adjust-color($scale-tonic,$hue:$hu,$saturation:$sat,$lightness:$light)
+}
+
+/* ===== mixins for scaling of text-color (fg=foreground) 
+         only used here for the header: 
+         removed other mixins for brevity 
+         (they repeat the same pattern like above ...) ===== */
+@mixin fg-cooler-2($scale-tonic,$hu:-12,$sat:0,$light:0) {
+  color: adjust-color($scale-tonic,$hue:$hu,$saturation:$sat,$lightness:$light)
+}
+
+$colors-list:
+$orange
+$green
+$cyan
+$blue
+$magenta;
+
+
+@for $i from 1 through length($colors-list) {
+
+  .color-scale--list-#{$i} {
+    @include bg-tonic($scale-tonic: nth($colors-list, $i),$light:25)
+  }
+  .color-scale--list-#{$i} li:nth-of-type(1) {
+    @include bg-cooler-6($scale-tonic: nth($colors-list, $i))
+  }
+  .color-scale--list-#{$i} li:nth-of-type(2) {
+    @include bg-cooler-5($scale-tonic: nth($colors-list, $i))
+  }
+  .color-scale--list-#{$i} li:nth-of-type(3) {
+    @include bg-cooler-4($scale-tonic: nth($colors-list, $i))
+  }
+  .color-scale--list-#{$i} li:nth-of-type(4) {
+    @include bg-cooler-3($scale-tonic: nth($colors-list, $i))
+  }
+  .color-scale--list-#{$i} li:nth-of-type(5) {
+    @include bg-cooler-2($scale-tonic: nth($colors-list, $i))
+  }
+  .color-scale--list-#{$i} li:nth-of-type(6) {
+    @include bg-cooler-1($scale-tonic: nth($colors-list, $i))
+  }
+  .color-scale--list-#{$i} li:nth-of-type(7) {
+    background-color: nth($colors-list, $i);
+  }
+  .color-scale--list-#{$i} li:nth-of-type(8) {
+    @include bg-warmer-1($scale-tonic: nth($colors-list, $i))
+  }
+  .color-scale--list-#{$i} li:nth-of-type(9) {
+    @include bg-warmer-2($scale-tonic: nth($colors-list, $i))
+  }
+  .color-scale--list-#{$i} li:nth-of-type(10) {
+    @include bg-warmer-3($scale-tonic: nth($colors-list, $i))
+  }
+  .color-scale--list-#{$i} li:nth-of-type(11) {
+    @include bg-warmer-4($scale-tonic: nth($colors-list, $i))
+  }
+  .color-scale--list-#{$i} li:nth-of-type(12) {
+    @include bg-warmer-5($scale-tonic: nth($colors-list, $i))
+  }
+  .color-scale--list-#{$i} li:nth-of-type(13) {
+    @include bg-warmer-6($scale-tonic: nth($colors-list, $i))
+  }
+
+}
+
+/* ===== general / layout  ===== */
+* {
+ box-sizing: border-box;
+}
+%clearfix {
+  &:before,
+  &:after {
+    content: " "; 
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+%reset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+%sans {
+  font-family: "PT Sans Narrow", AvenirNextCondensed-Regular, DejaVuSansCondensed, "Lucida Grande", "Lucida Sans Unicode", Corbel, "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+  font-weight: 400;
+}
+%sans-condensed {
+  font-family: "PT Sans Narrow", AvenirNextCondensed-DemiBold, Calibri, Corbel, "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Tahoma, Verdana, sans-serif;
+  font-weight: 700;
+}
+%monospace {
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+} 

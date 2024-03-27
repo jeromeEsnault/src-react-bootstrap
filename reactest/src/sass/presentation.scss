@@ -1,0 +1,98 @@
+@import './variable/index.scss';
+
+$display-inherit: inherit;
+
+$display-flex: flex;
+
+$justify-content: center;
+$align-items:center;
+
+$rotate-135deg: rotate(-135deg);
+
+$border-fleche: 2.5vw solid;
+$flecheViolet: $rgb-violet transparent transparent $rgb-violet;
+
+$flecheVertClair-Fonce: $rgb-vert-clair transparent transparent $rgb-vert-fonce;
+$flecheViolet-clair-bleu: $rgb-violet-clair transparent transparent $rgb-violet-bleu;
+$positionAbso: absolute;
+$pourcen-0: 0%;
+
+
+$animation-slide: slide 4s linear infinite; 
+
+$opacity-0:0; 
+$opacity-1:1;
+$translateY-15vw: translateY(-15vw); 
+$translateY15vw: translateY(15vw); 
+$translateY-9vw:  translateY(-9vw);
+$translateY9vw:  translateY(9vw); 
+
+
+/****************************************/
+#arrowAnim {
+
+  width: $width-100vh;
+  display: $display-flex;
+ justify-content: $justify-content;
+align-items:$align-items;
+}
+
+.arrow {
+  display: $display-inherit;
+  width: $width-10vw;
+  border: $border-fleche;
+  border-color: $flecheViolet;
+  transform: $rotate-135deg;
+}
+.arrow1 {
+  display: $display-inherit;
+  width: $width-10vw;
+  border: $border-fleche;
+  border-color: $flecheVertClair-Fonce;
+  transform:$rotate-135deg;
+}
+.arrow2 {
+  display:$display-inherit;
+  width: $width-10vw;
+  border: $border-fleche;
+  border-color: $flecheViolet-clair-bleu;
+  transform:$rotate-135deg;
+}
+
+.arrowSliding {
+  position: $positionAbso;
+  margin-top: $pourcen-0;
+  padding:$pourcen-0;
+
+  -webkit-animation: $animation-slide; 
+          animation: $animation-slide;
+}
+
+.delay1 {
+  -webkit-animation-delay: 1s; 
+    animation-delay: 1s;
+}
+.delay2 {
+  -webkit-animation-delay: 2s; 
+    animation-delay: 2s;
+}
+.delay3 {
+  -webkit-animation-delay: 3s; 
+    animation-delay: 3s;
+}
+// deplacement des fleche
+/***************************/
+@-webkit-keyframes slide {
+    0% { opacity:$opacity-0; transform: $translateY-15vw; }	
+   20% { opacity:$opacity-1; transform: $translateY-9vw; }	
+   80% { opacity:$opacity-1; transform: $translateY9vw; }	
+  100% { opacity:$opacity-0; transform: $translateY15vw; }	
+}
+@keyframes slide {
+    0% { opacity:$opacity-0;transform: $translateY-15vw; }	
+   20% { opacity:$opacity-1; transform: $translateY-9vw;}	
+   80% { opacity:$opacity-1; transform:$translateY9vw; }	
+  100% { opacity:$opacity-0; transform: $translateY15vw; }	
+}
+
+

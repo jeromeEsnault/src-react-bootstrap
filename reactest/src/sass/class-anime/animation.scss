@@ -1,0 +1,33 @@
+// CSS
+
+.animation-slide-in-up{
+  @include animation(0, 0.5s, animation-slide-in-up, ease);
+}
+
+.animation-slide-in-down{
+  @include animation(0, 0.5s, animation-slide-in-down, ease);
+}
+
+.animation-slide-in-right{
+  @include animation(0, 0.5s, animation-slide-in-right, ease);
+}
+
+.animation-slide-in-left{
+  @include animation(0, 0.5s, animation-slide-in-left, ease);
+}
+
+.animation-slide-out-up{
+  @include animation(0, 0.5s, animation-slide-out-up, ease);
+}
+
+.animation-slide-out-down{
+  @include animation(0, 0.5s, animation-slide-out-down, ease);
+}
+
+.animation-slide-out-right{
+  @include animation(0, 0.5s, animation-slide-out-right, ease);
+}
+
+.animation-slide-out-left{
+  @include animation(0, 0.5s, animation-slide-out-left, ease);
+}

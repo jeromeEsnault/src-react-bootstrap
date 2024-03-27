@@ -1,0 +1,11 @@
+@mixin transform($transform) {
+    -ms-transform: $transform;
+    -webkit-transform: $transform;
+    -o-transform: $transform;
+    -moz-transform: $transform;
+    transform: $transform;
+}
+
+// .btn {
+//     @include transform(rotate(10deg));
+// }
